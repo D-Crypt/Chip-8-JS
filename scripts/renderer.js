@@ -23,6 +23,10 @@ class Renderer {
         this.display[pixelLoc] ^= 1; // Toggle value at pixelLoc to 0 or 1 using XOR.
         return !this.display[pixelLoc]; // If true, a pixel was erased and vice-versa.
     }
+
+    clear() {
+        this.display = new Array(this.cols * this.rows);
+    }
 }
 
 export default Renderer;
