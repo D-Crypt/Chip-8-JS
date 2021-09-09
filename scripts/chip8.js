@@ -14,3 +14,14 @@ function init() {
 
     loop = requestAnimationFrame(step);
 }
+
+function step() {
+    now = Date.now();
+    elapsed = now - then;
+
+    if (elapsed > fpsInterval) {
+        // Cycle CPU.
+    }
+
+    loop = requestAnimationFrame(step);
+}
