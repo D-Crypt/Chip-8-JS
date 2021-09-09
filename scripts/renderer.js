@@ -27,6 +27,24 @@ class Renderer {
     clear() {
         this.display = new Array(this.cols * this.rows);
     }
+
+    render() {
+        // This function runs on a cyclical basis,
+        // i.e. clears the display every render cycle.
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+        for (let i = 0; i < this.cols * this.rows; i++) {
+            // Grabs the x and y pixel positions based on i.
+            let x = (i % this.cols) * this.scale;
+            let y = Math.floor(i / this.cols) * this.scale;
+
+            if (this.display[i]) {
+                // Set this pixel colour to black, then place a pixel at (x,y) with width and height set to scale.
+                this.context.fillStyle = '#000';
+                this.context.fillRect(x, y, this.scale, this.scale);
+            }
+        }
+    }
 }
 
 export default Renderer;
