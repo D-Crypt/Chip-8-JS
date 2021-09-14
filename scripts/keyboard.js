@@ -30,6 +30,17 @@ class Keyboard {
     isKeyPressed(keyCode) {
         return this.keysPressed[keyCode];
     }
+
+    onKeyDown(event) {
+        const key = this.keymap[event.which];
+        this.keysPressed[key] = true;
+
+        // Make sure onNextKeyPress is initialised and the pressed key is actually mapped to a Chip-8 key.
+        if (this.onNextKeyPress !== null && key) {
+            this.onNextKeyPress(parseInt(key));
+            this.onNextKeyPress = null;
+        }
+    }
 }
 
 export default Keyboard;
