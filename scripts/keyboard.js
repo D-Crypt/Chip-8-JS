@@ -41,6 +41,11 @@ class Keyboard {
             this.onNextKeyPress = null;
         }
     }
+
+    onKeyUp(event) {
+        const key = this.keymap[event.which];
+        this.keysPressed[key] = false;
+    }
 }
 
 export default Keyboard;
