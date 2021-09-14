@@ -8,7 +8,7 @@ class Renderer {
         this.context = this.canvas.getContext('2d');
         this.canvas.width = this.cols * this.scale;
         this.canvas.height = this.rows * this.scale;
-        this.display = [(this.cols * this.rows)]; // Represents each pixel (2048 total) of the display.
+        this.display = new Array(this.cols * this.rows); // Represents each pixel (2048 total) of the display.
     }
 
     setPixel(x, y) {
@@ -47,7 +47,7 @@ class Renderer {
     }
 
     testRender() {
-        this.setPixel(0, 0);
+        this.setPixel(5, 5);
         this.setPixel(5, 2);
     }
 }

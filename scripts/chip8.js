@@ -25,3 +25,5 @@ function step() {
 
     loop = requestAnimationFrame(step);
 }
+
+init();
